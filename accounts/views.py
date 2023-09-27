@@ -7,7 +7,10 @@ from accounts.models import UserProfile
 
 # Create your views here.
 def home(request):
-    profileImg = UserProfile.objects.get(user=request.user).profileImg
+    try:
+        profileImg = UserProfile.objects.get(user=request.user).profileImg.url
+    except:
+        profileImg = ""
     return render(request, 'home.html', {"profileImg": profileImg})
 
 
