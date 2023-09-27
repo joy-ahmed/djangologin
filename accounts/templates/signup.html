@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Sign up</title>
+{% endblock title %}
+
+{% block header %}
+    <div class="container">
+        <nav>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Active</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link d-flex" href="{% url "login" %}">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:18px">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                          </svg>                          
+                    </span>
+                    <span>
+                        Login
+                    </span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link d-flex" href="{% url "signup" %}">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>                          
+                    </span>
+                  <span>
+                    Signup
+                  </span>
+                </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {% endblock header %}
+
+{% block body %}
+    <div class="container">
+        <div class="card mx-auto" style="width: 30rem">
+            <div class="card-body">     
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                    <label for="fname" class="form-label">first name</label>
+                    <input type="text" class="form-control" id="fname" name="first_name">
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">last name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="last_name">
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">username</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="username">
+                    </div>
+                    <div class="mb-3">
+                    <label for="password1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password1" name="password1">
+                    </div>
+                    <div class="mb-3">
+                    <label for="password2" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
