@@ -22,7 +22,7 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex" href="#">
                         <span>
-                            <img width:"24px" src="{{profileImg}}" alt="">
+                            <img style="width: 48px" src="{{profileImg}}" alt="">
                         </span>
                     </a>
                     </li>
@@ -79,7 +79,13 @@
                 </div>
             </div>
         {% else %}
+        <div class="container mt-3">
+            <div class="mt-4 p-5 bg-danger text-white rounded">
+            <h1 class="text-center">⚠⚠Caution⚠⚠</h1> 
             <h5 class="text-center">You need to login before vewing the data</h5>
+            </div>
+        </div>
+            
         {% endif %}
     {% endblock body %}
     
