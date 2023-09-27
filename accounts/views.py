@@ -33,17 +33,20 @@ def logOut(request):
 
 
 def signup(request):
-    if request.method == "POST":
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        username = request.POST.get('username')
-        password = request.POST.get('password1')
-        user = User(
-            first_name = first_name,
-            last_name = last_name,
-            username = username,
-            password = make_password(password)
-        )
-        user.save()
+    if not request.user.is_authenticated:
+        if request.method == "POST":
+            first_name = request.POST.get("first_name")
+            last_name = request.POST.get("last_name")
+            username = request.POST.get('username')
+            password = request.POST.get('password1')
+            user = User(
+                first_name = first_name,
+                last_name = last_name,
+                username = username,
+                password = make_password(password)
+            )
+            user.save()
 
-    return render(request, 'signup.html')
+        return render(request, 'signup.html')
+    else:
+        return redirect('/')
